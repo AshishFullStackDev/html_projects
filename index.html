@@ -6,9 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Index Table</title>
     <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
         /* table */
         .table {
-            width: 100%;
+            width: 100vw;
             height: 500px;
             border-collapse: collapse;
 
@@ -24,8 +28,9 @@
         .first-row-th-one {
             border-style: solid;
             border-width: 3px;
-            border-color: white;
+            border-color: black;
             width: 200px;
+            border-collapse: collapse;
 
 
         }
@@ -33,25 +38,27 @@
         .first-row-th-two {
             border-style: solid;
             border-width: 3px;
-            border-color: white;
+            border-color: black;
             width: 200px;
+            border-collapse: collapse;
 
         }
 
         .first-row-th-three {
             border-style: solid;
             border-width: 3px;
-            border-color: white;
+            border-color: black;
             width: 200px;
-            font-size: large;
+            border-collapse: collapse;
 
         }
 
         .first-row-th-four {
             border-style: solid;
             border-width: 3px;
-            border-color: white;
+            border-color: black;
             width: 200px;
+            border-collapse: collapse;
 
 
         }
@@ -66,9 +73,10 @@
         .second-row-td-one {
             border-style: solid;
             border-width: 3px;
-            border-color: white;
+            border-color: black;
             text-align: center;
             color: white;
+            border-collapse: collapse;
 
 
         }
@@ -76,7 +84,7 @@
         /* third row */
         .third-row {
             height: 400px;
-            width: 100%;
+            width: 100vw;
             background-image: url(https://img.freepik.com/premium-photo/3d-abstract-background_493604-1337.jpg?semt=ais_hybrid);
 
         }
@@ -87,26 +95,29 @@
             border-color: white;
             text-align: center;
             color: white;
+            border-collapse: collapse;
 
         }
 
         /* fourth row */
         .fourth-row {
             height: 400px;
-            width: 100%;
+            width: 100vw;
             background-image: url(https://img.freepik.com/premium-photo/3d-abstract-background_493604-1337.jpg?semt=ais_hybrid);
         }
 
         .fourth-row-td-one {
             border-style: solid;
             border-width: 3px;
-            border-color:white;
+            border-color: white;
+            border-collapse: collapse;
         }
 
         /* second table */
         .second-table {
-            width: 100%;
+            width: 100vw;
             height: 100%;
+            border-collapse: collapse;
         }
 
         .second-row-td-one {
@@ -114,11 +125,13 @@
             border-width: 3px;
             border-color: white;
             border-collapse: collapse;
+            text-align: center;
         }
 
         .second-table-row-two {
             width: 100%;
             height: 200px;
+            border-collapse: collapse;
 
         }
 
@@ -127,6 +140,7 @@
             border-width: 3px;
             border-color: white;
             border-collapse: collapse;
+            text-align: center;
         }
 
 
@@ -134,6 +148,7 @@
         .fifth-row {
             height: 500px;
             width: 100%;
+            border-collapse: collapse;
             background-image: url(https://img.freepik.com/premium-photo/3d-abstract-background_493604-1337.jpg?semt=ais_hybrid);
 
         }
@@ -144,6 +159,7 @@
             border-color: white;
             text-align: center;
             color: white;
+
 
         }
     </style>
@@ -162,7 +178,7 @@
             <th class="first-row-th-three"><a href="#Projects">
                     <h1>Projects</h1>
             </th>
-            <th class="first-row-th-four"><a href="#Contacts">
+            <th class="first-row-th-four"><a href="#contact">
                     <h1>Contacts</h1>
             </th>
         </tr>
@@ -170,7 +186,7 @@
         <!--second row  -->
         <tr class="second-row" id="Home">
             <td colspan="4" class="second-row-td-one">
-                <img src="./assets/images/ashish.jpg" width="200px" alt="">
+                <img src="./assets/images/ashish.jpg" width="200px">
                 <h1>Hi I'm Ashish Naik</h1>
                 <h3>A Full Stack Develpoer</h3>
             </td>
@@ -203,48 +219,83 @@
                     <!-- second table -->
                     <tr class="second-table-row-one ">
                         <td class="second-row-td-one"><img src="./assets/images/1741788571826.png" alt="Resume"
-                                height="350" width="350px"><a href="./resume.html"> <br />Resume</a></td>
+                                height="350" width="350px"><a href="./resume.html"> <br />
+                                <h1>Resume</h1>
+                            </a></td>
                         <td class="second-row-td-one"><img
                                 src="https://cdn.pixabay.com/photo/2017/06/05/15/52/calculator-2374442_640.png" alt=""
-                                width="250px"><a href="./calculator.html"><br />Calculator</a></td>
+                                width="250px"><a href="./calculator.html"><br />
+                                <h1>Calculator</h1>
+                            </a></td>
                         <td class="second-row-td-one"><img
                                 src="https://images.news18.com/ibnlive/uploads/2022/11/rohit-sharma-hardik-pandya-virat-khli.jpg"
-                                alt="" width="350px"><a href="./top-influncer.html"><br />Top Influncer</a></td>
+                                alt="" width="350px"><a href="./top-influncer.html"><br />
+                                <h1>Top Influncer</h1>
+                            </a></td>
                         <td class="second-row-td-one"><img src="https://m.media-amazon.com/images/I/61TLJNaBkxL.png"
-                                alt="" height="200px"><a href="./signup-page.html"><br />Registration Form</a></td>
+                                alt="" height="200px"><a href="./signup-page.html"><br />
+                                <h1>Registration Form</h1>
+                            </a></td>
                     </tr>
                     <tr class="second-table-row-one">
                         <td class="second-row-td-one"><img
                                 src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_L4BWDRzfzlwM3wQTJ0qFXOkcIqdl0RnuVQ&s"
-                                alt="" height="250px" width="350px"><a href="./youtube-page.html"><br />Youtube Page</a>
+                                alt="" height="250px" width="350px"><a href="./youtube-page.html"><br />
+                                <h1>Youtube Page</h1>
+                            </a>
                         </td>
                         <td class="second-row-td-two"><img
                                 src="https://developer.android.com/static/images/ui/gridlayout.png" alt=""
-                                height="300px"><a href="./tbl-layout.html"><br />Table Layout</a></td>
+                                height="300px"><a href="./tbl-layout.html"><br />
+                                <h1>Table Layout</h1>
+                            </a></td>
                         <td class="second-row-td-two"><img
                                 src="https://kidskangla.wordpress.com/wp-content/uploads/2022/05/students_data.jpg?w=948"
-                                alt="" height="250px"><a href="./tbl-student-data.html"><br />Student Data</a></td>
+                                alt="" height="250px"><a href="./tbl-student-data.html"><br />
+                                <h1>Student Data</h1>
+                            </a>
+                        </td>
                         <td class="second-row-td-two"><img
                                 src="https://t4.ftcdn.net/jpg/00/71/09/91/360_F_71099146_CsT3S75jVDpkbyWsFvZiqSvaKxGUbQyd.jpg"
-                                alt="" height="250px" width="350px"><a href="./report-card.html"><br />Report Card</a>
+                                alt="" height="250px" width="350px"><a href="./report-card.html"><br />
+                                <h1>Report Card</h1>
+                            </a>
                         </td>
                     </tr>
                     <tr>
                         <td class="second-row-td-two"><img
                                 src="https://c8.alamy.com/comp/2EY5YPY/user-or-profile-card-details-symbol-identity-document-with-person-photo-and-text-personal-info-data-cards-2EY5YPY.jpg"
-                                alt="" height="250px"><a href="./css/css-assignmnet-one.html"><br />Profile Card</a>
+                                alt="" height="250px"><a href="./css/css-assignmnet-one.html"><br />
+                                <h1>Profile Card</h1>
+                            </a>
                         </td>
                         <td class="second-row-td-two">
                             <img src="https://c8.alamy.com/comp/2EY5YPY/user-or-profile-card-details-symbol-identity-document-with-person-photo-and-text-personal-info-data-cards-2EY5YPY.jpg"
-                                alt="" height="250px" width="410px"><a href="./css/css-assignment-two.html"><br />Profile Card-2</a>
+                                alt="" height="250px" width="410px"><a href="./css/css-assignment-two.html"><br />
+                                <h1>Profile Card-2</h1>
+                            </a>
                         </td>
-                    </tr>
+                        <td class="second-row-td-two">
+                            <img src="https://ecelectronics.com/wp-content/uploads/2020/04/Modern-Electronics-EC-.jpg"
+                                width="400px">
+                            <a href="./css/grid-class/grid-assgnment-six.html"><br />
+                                <h1>Grid-boxes</h1>
+                            </a>
+                        <td class="second-row-td-two">
+                            <img src="https://www.shutterstock.com/image-vector/breaking-news-design-template-illustration-600nw-2475245439.jpg"
+                                width="300px">
+                                <a href="./css/grid-class/grid-assignment-two.html"><br/>
+                                <h1>Breaking News</h1>
+                            </a>
+                        </td>
             </td>
+        </tr>
+        </td>
         </tr>
     </table>
 
     <!--fifth row -->
-    <tr class="fifth-row" id="Contact">
+    <tr class="fifth-row" id="contact">
         <td colspan="4" class="fifth-row-td-one">
             <h1>Contact</h1>
             <h3>Phone:<a href="tel: +91 8830868807">+91 8830868807</a></h3>
