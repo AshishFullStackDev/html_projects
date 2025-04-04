@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume</title>
+    <style>
+        /* A4 size in pixels is approximately 794px × 1123px */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 794px;
+            height: 1123px;
+            display: grid;
+            grid-template-columns: 40% 60%;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .box-one {
+            background-color: #BDDDE4;
+            padding: 20px;
+            box-sizing: border-box;
+            height: 100%;
+        }
+
+        img {
+            border-radius: 50%;
+            display: block;
+            margin: 30px auto;
+            border: 3px solid white;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        h2 {
+            margin: 25px 0 10px 0;
+            border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+            padding-bottom: 5px;
+            color: #444;
+        }
+
+        h3 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-weight: normal;
+            color: #555;
+        }
+
+        .box-two {
+            background-color: #EFEFEF;
+            padding: 30px;
+            box-sizing: border-box;
+            height: 100%;
+        }
+
+        ul {
+            margin-top: 10px;
+            margin-bottom: 20px;
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 5px;
+        }
+
+        .contact-item {
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        label {
+            font-weight: bold;
+            min-width: 60px;
+            display: inline-block;
+        }
+
+        a {
+            color: #333;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="box-one">
+            <img src="./assets/ashish-removebg-preview.png" width="150px" height="150px" alt="Ashish Naik">
+            <h1>Ashish Naik</h1>
+            <h3>Full Stack Developer</h3>
+
+            <h2>Skills</h2>
+            <ul>
+                <li>HTML</li>
+                <li>CSS</li>
+            </ul>
+
+            <h2>Contact</h2>
+            <div class="contact-item"><label>Email:</label><a
+                    href="mailto:ashishnaik1386@gmail.com">ashishnaik1386@gmail.com</a></div>
+            <div class="contact-item"><label>Phone:</label><a href="tel:+918830868807">+91 8830868807</a></div>
+            <div class="contact-item"><label>Github:</label><a
+                    href="https://github.com/AshishFullStackDev/HTMLProjects">github.com/AshishFullStackDev</a></div>
+          <h2>Languages</h2>
+          <p>
+            English <br/>
+            Hindi <br/>
+            Marathi <br/>
+          </p>
+        </div>
+          
+        <div class="box-two">
+            <h2>About</h2>
+            <p>I am Ashish Khushal Naik, a B.Tech 1st-year student at RTMNU University,specializing in 
+                Artificial Intelligence. Passionate about technology and innovation, I am currently expanding
+                my skills in web development through a full stack development course at Enjoy Programming Pvt Ltd.
+
+            </p>
+
+            <h2>Professional Summary</h2>
+            <p>Dedicated Full Stack Developer with experience in building responsive web applications. Proficient in
+                HTML, CSS, and other web technologies.</p>
+
+            <h2>Experience</h2>
+            <div>
+                <h4>Junior Web Developer</h4>
+                <ul>
+                    <li>Developed responsive web interfaces using HTML, CSS and JavaScript</li>
+                    <li>Collaborated with design team to implement UI/UX improvements</li>
+                </ul>
+            </div>
+
+            <h2>Education</h2>
+            <div>
+                <h4>B.Tech in Artificial Intelligence(1st-year) </h4>
+                <p>University Name • 2017 - 2021</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
