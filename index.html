@@ -1,314 +1,741 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Index Table</title>
+    <title>AshishAN Portfolio</title>
     <style>
-        html {
-            scroll-behavior: smooth;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-        /* table */
-        .table {
-            width: 100vw;
-            height: 500px;
-            border-collapse: collapse;
-
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #0B1120 0%, #0F172A 100%);
+            color: #F8FAFC;
+            line-height: 1.6;
+            overflow-x: hidden;
         }
 
-        /* first row */
-        .first-row {
-            height: 70px;
-            border-collapse: collapse;
-            background-image: url(https://img.freepik.com/premium-photo/3d-abstract-background_493604-1337.jpg?semt=ais_hybrid);
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            padding: 1rem 2rem;
+            transition: all 0.3s ease;
         }
 
-        .first-row-th-one {
-            border-style: solid;
-            border-width: 3px;
-            border-color: black;
-            width: 200px;
-            border-collapse: collapse;
-
-
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        .first-row-th-two {
-            border-style: solid;
-            border-width: 3px;
-            border-color: black;
-            width: 200px;
-            border-collapse: collapse;
-
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #38BDF8;
+            text-decoration: none;
         }
 
-        .first-row-th-three {
-            border-style: solid;
-            border-width: 3px;
-            border-color: black;
-            width: 200px;
-            border-collapse: collapse;
-
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
         }
 
-        .first-row-th-four {
-            border-style: solid;
-            border-width: 3px;
-            border-color: black;
-            width: 200px;
-            border-collapse: collapse;
-
-
+        .nav-links a {
+            color: #F8FAFC;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
         }
 
-        /* second row */
-        .second-row {
-            height: 400px;
-            background-image: url(https://img.freepik.com/premium-photo/3d-abstract-background_493604-1337.jpg?semt=ais_hybrid);
-
+        .nav-links a:hover {
+            color: #38BDF8;
         }
 
-        .second-row-td-one {
-            border-style: solid;
-            border-width: 3px;
-            border-color: black;
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #FACC15;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .mobile-menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: #38BDF8;
+            margin: 3px 0;
+            transition: 0.3s;
+            border-radius: 2px;
+        }
+
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 70px;
+            left: 0;
+            width: 100%;
+            background: rgba(15, 23, 42, 0.98);
+            backdrop-filter: blur(20px);
+            padding: 2rem;
+            z-index: 999;
+        }
+
+        .mobile-menu.active {
+            display: block;
+            animation: slideDown 0.3s ease-out;
+        }
+
+        .mobile-menu ul {
+            list-style: none;
             text-align: center;
-            color: white;
-            border-collapse: collapse;
-
-
         }
 
-        /* third row */
-        .third-row {
-            height: 400px;
-            width: 100vw;
-            background-image: url(https://img.freepik.com/premium-photo/3d-abstract-background_493604-1337.jpg?semt=ais_hybrid);
-
+        .mobile-menu ul li {
+            margin: 1rem 0;
         }
 
-        .third-row-td-one {
-            border-style: solid;
-            border-width: 3px;
-            border-color: white;
+        .mobile-menu ul li a {
+            color: #F8FAFC;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: 500;
+            padding: 0.5rem;
+            display: block;
+            transition: color 0.3s ease;
+        }
+
+        .mobile-menu ul li a:hover {
+            color: #38BDF8;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             text-align: center;
-            color: white;
-            border-collapse: collapse;
-
+            position: relative;
+            overflow: hidden;
+            padding: 0 1rem;
         }
 
-        /* fourth row */
-        .fourth-row {
-            height: 400px;
-            width: 100vw;
-            background-image: url(https://img.freepik.com/premium-photo/3d-abstract-background_493604-1337.jpg?semt=ais_hybrid);
-        }
-
-        .fourth-row-td-one {
-            border-style: solid;
-            border-width: 3px;
-            border-color: white;
-            border-collapse: collapse;
-        }
-
-        /* second table */
-        .second-table {
-            width: 100vw;
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
             height: 100%;
-            border-collapse: collapse;
+            background: radial-gradient(circle at 20% 80%, rgba(56, 189, 248, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(250, 204, 21, 0.1) 0%, transparent 50%);
+            z-index: -1;
         }
 
-        .second-row-td-one {
-            border-style: solid;
-            border-width: 3px;
-            border-color: white;
-            border-collapse: collapse;
+        .hero-content h3 {
+            font-size: clamp(2rem, 6vw, 6rem);
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #38BDF8 0%, #FACC15 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero-content p {
+            font-size: clamp(1rem, 3vw, 1.5rem);
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, #38BDF8 0%, #0F172A 100%);
+            color: #F8FAFC;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(56, 189, 248, 0.3);
+            animation: fadeInUp 1s ease-out 0.6s both;
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 40px rgba(56, 189, 248, 0.4);
+        }
+
+        /* Section Styling */
+        .section {
+            padding: 3rem 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 2rem;
+            text-align: center;
+            color: #38BDF8;
+            position: relative;
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: #FACC15;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            align-items: center;
+            margin-top: 2rem;
             text-align: center;
         }
 
-        .second-table-row-two {
-            width: 100%;
+        .about-image {
+            width: 200px;
             height: 200px;
-            border-collapse: collapse;
-
+            border-radius: 50%;
+            background: linear-gradient(135deg, #38BDF8 0%, #FACC15 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: #0F172A;
+            font-weight: bold;
+            box-shadow: 0 20px 40px rgba(56, 189, 248, 0.3);
+            margin: 0 auto;
         }
 
-        .second-row-td-two {
-            border-style: solid;
-            border-width: 3px;
-            border-color: white;
-            border-collapse: collapse;
+        .about-text {
+            font-size: 1rem;
+            line-height: 1.8;
+            text-align: left;
+            max-width: none;
+        }
+
+        .about-text p {
+            margin-bottom: 1rem;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .skill-card {
+            background: rgba(15, 23, 42, 0.5);
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            padding: 1.5rem;
+            border-radius: 15px;
             text-align: center;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
         }
 
-
-        /* fifth row */
-        .fifth-row {
-            height: 500px;
-            width: 100%;
-            border-collapse: collapse;
-            background-image: url(https://img.freepik.com/premium-photo/3d-abstract-background_493604-1337.jpg?semt=ais_hybrid);
-
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(56, 189, 248, 0.2);
+            border-color: #FACC15;
         }
 
-        .fifth-row-td-one {
-            border-style: solid;
-            border-width: 3px;
-            border-color: white;
+        .skill-card h3 {
+            color: #FACC15;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .skill-card p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .project-card {
+            background: rgba(15, 23, 42, 0.7);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(56, 189, 248, 0.2);
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(56, 189, 248, 0.2);
+        }
+
+        .project-image {
+            height: 150px;
+            background: linear-gradient(135deg, #38BDF8 0%, #FACC15 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: #0F172A;
+            font-weight: bold;
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-content h3 {
+            color: #38BDF8;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .project-content p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .project-link {
+            display: inline-block;
+            color: #FACC15;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .project-link:hover {
+            color: #38BDF8;
+        }
+
+        /* Contact Section */
+        .contact-content {
             text-align: center;
-            color: white;
+            margin: 2rem auto 0;
+        }
+
+        .contact-content > p {
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            padding: 0 1rem;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .contact-item {
+            background: rgba(15, 23, 42, 0.5);
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            padding: 1.5rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .contact-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(56, 189, 248, 0.2);
+            border-color: #FACC15;
+        }
+
+        .contact-item h3 {
+            color: #38BDF8;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .contact-item p {
+            color: #F8FAFC;
+            font-size: 0.95rem;
+            font-weight: 500;
+            word-break: break-all;
+        }
+
+        /* Footer */
+        footer {
+            background: #0F172A;
+            text-align: center;
+            padding: 2rem 1rem;
+            border-top: 1px solid rgba(56, 189, 248, 0.3);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .social-links a {
+            color: #38BDF8;
+            font-size: 1.3rem;
+            transition: color 0.3s ease;
+            padding: 0.5rem;
+        }
+
+        .social-links a:hover {
+            color: #FACC15;
+        }
+
+        footer p {
+            font-size: 0.9rem;
+            color: rgba(248, 250, 252, 0.8);
+        }
 
 
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem;
+            }
+
+            .logo {
+                font-size: 1.3rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-toggle {
+                display: flex;
+            }
+
+            .section {
+                padding: 2rem 1rem;
+            }
+
+            .hero {
+                min-height: 100vh;
+                padding-top: 80px;
+            }
+
+            .hero-content h3 {
+                font-size: 2.5rem;
+                line-height: 1.2;
+            }
+
+            .hero-content p {
+                font-size: 1.1rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .cta-button {
+                padding: 0.8rem 1.5rem;
+                font-size: 1rem;
+            }
+
+            .about-image {
+                width: 180px;
+                height: 180px;
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content h3 {
+                font-size: 2rem;
+            }
+
+            .hero-content p {
+                font-size: 1rem;
+            }
+
+            .section {
+                padding: 1.5rem 0.8rem;
+            }
+
+            .section h2 {
+                font-size: 1.8rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .skill-card, .contact-item {
+                padding: 1.2rem;
+            }
+
+            .project-content {
+                padding: 1.2rem;
+            }
+
+            .about-image {
+                width: 150px;
+                height: 150px;
+                font-size: 2rem;
+            }
+
+            .contact-item p {
+                font-size: 0.85rem;
+            }
+        }
+
+        /* Desktop Responsiveness */
+        @media (min-width: 1025px) {
+            .section {
+                padding: 5rem 2rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr 2fr;
+                text-align: left;
+                gap: 4rem;
+            }
+
+            .about-image {
+                width: 300px;
+                height: 300px;
+                font-size: 4rem;
+                margin: 0;
+            }
+
+            .skills-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 2rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            }
+
+            .contact-info {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
+                max-width: 800px;
+                margin: 3rem auto 0;
+            }
+
+            .project-image {
+                height: 200px;
+                font-size: 3rem;
+            }
+
+            .project-content {
+                padding: 2rem;
+            }
+
+            .skill-card, .contact-item {
+                padding: 2rem;
+            }
         }
     </style>
 </head>
-
 <body>
-    <table class="table">
-        <!--first row  -->
-        <tr class="first-row">
-            <th class="first-row-th-one"><a href="#Home">
-                    <h1>Home</h1>
-            </th>
-            <th class="first-row-th-two"><a href="#About">
-                    <h1>About</h1>
-            </th>
-            <th class="first-row-th-three"><a href="#Projects">
-                    <h1>Projects</h1>
-            </th>
-            <th class="first-row-th-four"><a href="#contact">
-                    <h1>Contacts</h1>
-            </th>
-        </tr>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="#home" class="logo">AshishAN</a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        <div class="mobile-menu" id="mobileMenu">
+            <ul>
+                <li><a href="#home" onclick="closeMobileMenu()">Home</a></li>
+                <li><a href="#about" onclick="closeMobileMenu()">About</a></li>
+                <li><a href="#skills" onclick="closeMobileMenu()">Skills</a></li>
+                <li><a href="#projects" onclick="closeMobileMenu()">Projects</a></li>
+                <li><a href="#contact" onclick="closeMobileMenu()">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
 
-        <!--second row  -->
-        <tr class="second-row" id="Home">
-            <td colspan="4" class="second-row-td-one">
-                <img src="./assets/images/ashish.jpg" width="200px">
-                <h1>Hi I'm Ashish Naik</h1>
-                <h3>A Full Stack Develpoer</h3>
-            </td>
-        </tr>
+    <!-- Hero Section -->
+    <div id="home" class="hero">
+        <div class="hero-content">
+            <h3>Hello, I'm Ashish Naik</h3>
+            <p>Full-Stack Developer & Creative Problem Solver</p>
+            <a href="#projects" class="cta-button">View My Work</a>
+        </div>
+    </div>
 
-        <!--third row  -->
-        <tr class="third-row" id="About">
-            <td colspan="4" class="second-row-td-one">
-                <h1>About</h1>
-                <h3>
-                    I am passionate a Full Stack Development,where I am gaining
-                    hands-on experience in building both front-end and back-end web applications. Through this program,
-                    I have developed a solid understanding of HTML, CSS, JavaScript, and React.js for creating
-                    responsive and user-friendly interfaces. On the back-end, I have learned Node.js, Express.js, and
-                    how to work with databases like MongoDB and MySQL.
+    <!-- About Section -->
+    <div id="about" class="section">
+        <h2>About Me</h2>
+        <div class="about-content">
+            <div class="about-image">AN</div>
+            <div class="about-text">
+                <p>Hello! I'm Ashish, a passionate full-stack developer with a love for creating beautiful, functional, and user-centered digital experiences. With expertise in modern web technologies, I bring ideas to life through clean code and innovative solutions.</p>
+                <p>My journey in development has been driven by curiosity and a constant desire to learn. I believe in the power of technology to solve real-world problems and create meaningful connections between people and digital experiences.</p>
+                <p>When I'm not coding, you can find me exploring new technologies, contributing to open source projects, or sharing knowledge with the developer community.</p>
+            </div>
+        </div>
+    </div>
 
-                    I am committed to continuously improving my skills, developing real-world projects, and staying
-                    updated on the latest industry trends. I am eager to apply my knowledge in building efficient,
-                    scalable, and dynamic web applications, and am excited about opportunities that will allow me to
-                    contribute to impactful tech solutions.
-                </h3>
-            </td>
-        </tr>
+    <!-- Skills Section -->
+    <div id="skills" class="section">
+        <h2>Skills & Technologies</h2>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <h3>Frontend</h3>
+                <p>HTML5, CSS3, Javascript</p>
+            </div>
+            <div class="skill-card">
+                <h3>Backend</h3>
+                <p>Node.js, Express, REST APIs</p>
+            </div>
+            <div class="skill-card">
+                <h3>Database</h3>
+                <p>MongoDB, PostgreSQL, MySQL</p>
+            </div>
+        </div>
+    </div>
 
-        <!-- fourth row -->
-        <tr class="fourth-row" id="Projects">
-            <td colspan="4" class="fourth-row-td-one">
+    <!-- Projects Section -->
+    <div id="projects" class="section">
+        <h2>Featured Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-image">01</div>
+                <div class="project-content">
+                    <h3>HTML5</h3>
+                    <p>Modern semantic HTML5 projects featuring responsive layouts, accessibility best practices, and clean markup structure for web applications.</p>
+                    <a href="./my-html-projects.html" class="project-link">View Project →</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-image">02</div>
+                <div class="project-content">
+                    <h3>CSS3</h3>
+                    <p>Advanced CSS3 styling projects including animations, grid layouts, flexbox designs, and modern visual effects for enhanced user experience.</p>
+                    <a href="./my-css-projects.html" class="project-link">View Project →</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-image">03</div>
+                <div class="project-content">
+                    <h3>JAVASCRIPT</h3>
+                    <p>Interactive JavaScript applications featuring DOM manipulation, API integration, and modern ES6+ features for dynamic web experiences.</p>
+                    <a href="./my-js-projects.html" class="project-link">View Project →</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-image">04</div>
+                <div class="project-content">
+                    <h3>LIVE PROJECTS</h3>
+                    <p>Fully deployed web applications showcasing real-world functionality, including e-commerce sites, dashboards, and interactive platforms.</p>
+                    <a href="./my-live-projects.html" class="project-link">View Project →</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-image">05</div>
+                <div class="project-content">
+                    <h3>FIGMA DESIGN</h3>
+                    <p>UI/UX design prototypes created in Figma, featuring wireframes, mockups, and design systems for modern web and mobile interfaces.</p>
+                    <a href="#" class="project-link">View Project →</a>
+                </div>
+            </div>
+        </div>
+    </div>
 
-                <table class="second-table">
-                    <!-- second table -->
-                    <tr class="second-table-row-one ">
-                        <td class="second-row-td-one"><img src="./assets/images/1741788571826.png" alt="Resume"
-                                height="350" width="350px"><a href="./resume.html"> <br />
-                                <h1>Resume</h1>
-                            </a></td>
-                        <td class="second-row-td-one"><img
-                                src="https://cdn.pixabay.com/photo/2017/06/05/15/52/calculator-2374442_640.png" alt=""
-                                width="250px"><a href="./calculator.html"><br />
-                                <h1>Calculator</h1>
-                            </a></td>
-                        <td class="second-row-td-one"><img
-                                src="https://images.news18.com/ibnlive/uploads/2022/11/rohit-sharma-hardik-pandya-virat-khli.jpg"
-                                alt="" width="350px"><a href="./top-influncer.html"><br />
-                                <h1>Top Influncer</h1>
-                            </a></td>
-                        <td class="second-row-td-one"><img src="https://m.media-amazon.com/images/I/61TLJNaBkxL.png"
-                                alt="" height="200px"><a href="./signup-page.html"><br />
-                                <h1>Registration Form</h1>
-                            </a></td>
-                    </tr>
-                    <tr class="second-table-row-one">
-                        <td class="second-row-td-one"><img
-                                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_L4BWDRzfzlwM3wQTJ0qFXOkcIqdl0RnuVQ&s"
-                                alt="" height="250px" width="350px"><a href="./youtube-page.html"><br />
-                                <h1>Youtube Page</h1>
-                            </a>
-                        </td>
-                        <td class="second-row-td-two"><img
-                                src="https://developer.android.com/static/images/ui/gridlayout.png" alt=""
-                                height="300px"><a href="./tbl-layout.html"><br />
-                                <h1>Table Layout</h1>
-                            </a></td>
-                        <td class="second-row-td-two"><img
-                                src="https://kidskangla.wordpress.com/wp-content/uploads/2022/05/students_data.jpg?w=948"
-                                alt="" height="250px"><a href="./tbl-student-data.html"><br />
-                                <h1>Student Data</h1>
-                            </a>
-                        </td>
-                        <td class="second-row-td-two"><img
-                                src="https://t4.ftcdn.net/jpg/00/71/09/91/360_F_71099146_CsT3S75jVDpkbyWsFvZiqSvaKxGUbQyd.jpg"
-                                alt="" height="250px" width="350px"><a href="./report-card.html"><br />
-                                <h1>Report Card</h1>
-                            </a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="second-row-td-two"><img
-                                src="https://c8.alamy.com/comp/2EY5YPY/user-or-profile-card-details-symbol-identity-document-with-person-photo-and-text-personal-info-data-cards-2EY5YPY.jpg"
-                                alt="" height="250px"><a href="./css/css-assignmnet-one.html"><br />
-                                <h1>Profile Card</h1>
-                            </a>
-                        </td>
-                        <td class="second-row-td-two">
-                            <img src="https://c8.alamy.com/comp/2EY5YPY/user-or-profile-card-details-symbol-identity-document-with-person-photo-and-text-personal-info-data-cards-2EY5YPY.jpg"
-                                alt="" height="250px" width="410px"><a href="./css/css-assignment-two.html"><br />
-                                <h1>Profile Card-2</h1>
-                            </a>
-                        </td>
-                        <td class="second-row-td-two">
-                            <img src="https://ecelectronics.com/wp-content/uploads/2020/04/Modern-Electronics-EC-.jpg"
-                                width="400px">
-                            <a href="./css/grid-class/grid-assgnment-six.html"><br />
-                                <h1>Grid-boxes</h1>
-                            </a>
-                        <td class="second-row-td-two">
-                            <img src="https://www.shutterstock.com/image-vector/breaking-news-design-template-illustration-600nw-2475245439.jpg"
-                                width="300px">
-                                <a href="./css/grid-class/grid-assignment-two.html"><br/>
-                                <h1>Breaking News</h1>
-                            </a>
-                        </td>
-            </td>
-        </tr>
-        </td>
-        </tr>
-    </table>
+    <!-- Contact Section -->
+    <div id="contact" class="section">
+        <h2>Get In Touch</h2>
+        <div class="contact-content">
+            <p>I'm always open to discussing new opportunities, interesting projects, or just having a chat about technology. Feel free to reach out!</p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <h3>📱 Mobile No</h3>
+                    <p>8830868807</p>
+                </div>
+                <div class="contact-item">
+                    <h3>📧 Email</h3>
+                    <p>ashishnaik1386@gmail.com</p>
+                </div>
+                <div class="contact-item">
+                    <h3>💼 LinkedIn</h3>
+                    <p>linkedin.com/in/ashishan</p>
+                </div>
+                <div class="contact-item">
+                    <h3>🐙 GitHub</h3>
+                    <p>github.com/ashishan</p>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    <!--fifth row -->
-    <tr class="fifth-row" id="contact">
-        <td colspan="4" class="fifth-row-td-one">
-            <h1>Contact</h1>
-            <h3>Phone:<a href="tel: +91 8830868807">+91 8830868807</a></h3>
-            <h3>Email:<a href="mailto: ashishnaik1386@gmail.com">ashishnaik1386@gmail.com</a></h3>
+    <!-- Footer -->
+    <footer>
+        <div class="social-links">
+            <a href="#" title="LinkedIn">💼</a>
+            <a href="#" title="GitHub">🐙</a>
+            <a href="#" title="Twitter">🐦</a>
+            <a href="#" title="Email">📧</a>
+        </div>
+        <p>&copy; 2025 AshishAN. All rights reserved.</p>
+    </footer>
+    <script>
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('active');
+        }
 
-            <h3>Github:<a
-                    href="https://github.com/AshishFullStackDev/HTMLProjects">hhtp://github.com/AshishFullStackDev</a>
-            </h3>
-            <h3>Skype: <a href="skype: live:.cid.add8a132b4dda825">live:.cid.add8a132b4dda825</a></h3>
-
-        </td>
-    </tr>
-    </table>
+        function closeMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.remove('active');
+        }
+    </script>
 </body>
-
 </html>
